@@ -23,7 +23,17 @@ dependencies {
 
 
 task hello {
+    println 'test before'
     doLast {
         println 'Hello World!'
+        println "##teamcity[setParameter name='env.NEW_VERSION' value='18.10.00.hello']"
+    }
+    println 'test after'
+}
+
+task propertyTry {
+    doLast {
+        println "env: " + System.getenv("newVersion")
+        println "sys: " + System.getProperty("newVersion")
     }
 }

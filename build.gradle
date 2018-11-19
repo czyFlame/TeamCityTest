@@ -27,6 +27,7 @@ task hello {
     doLast {
         println 'Hello World!'
         println 'test again'
+        println 'third again'
         println "##teamcity[setParameter name='env.NEW_VERSION' value='18.10.00.hello']"
     }
     println 'test after'

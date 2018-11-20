@@ -214,7 +214,10 @@ object Release : BuildType({
 
 object Test : BuildType({
     name = "Test"
-
+    
+    vcs {
+        root(DslContext.settingsRoot)
+    }
 
     artifactRules = "pom.xml"
 

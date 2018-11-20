@@ -215,6 +215,9 @@ object Release : BuildType({
 object Test : BuildType({
     name = "Test"
 
+
+    artifactRules = "pom.xml"
+
     params {
         param("env.SOURCE_BRANCH", "%system.teamcity.projectName%-%system.teamcity.buildConfName%-%build.counter%")
         param("env.SETTING_TEST", "a setting test parameter")

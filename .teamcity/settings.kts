@@ -247,6 +247,7 @@ object Test : BuildType({
                 
                 version_suffix=`date +'%%Y%%m%%d'`
                 echo ${'$'}version_suffix
+                echo "this is first settings test"
             """.trimIndent()
         }
     }

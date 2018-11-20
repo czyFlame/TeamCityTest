@@ -33,7 +33,6 @@ project {
     buildType(Build)
     buildType(Release)
     buildType(CompositeTest)
-    buildType(AAA)
     buildType(SecondTest)
 
     template(First)
@@ -118,26 +117,6 @@ project {
         }
     }
 }
-
-object AAA : BuildType({
-    name = "AAA"
-
-    params {
-        param("NEW_VERSION", "1233456")
-    }
-
-    steps {
-        script {
-            name = "AAA-test"
-            scriptContent = """
-                #!/bin/bash
-                
-                echo "this is a test from settings"
-                echo ${'$'}NEW_VERSION
-            """.trimIndent()
-        }
-    }
-})
 
 object Build : BuildType({
     name = "Build"

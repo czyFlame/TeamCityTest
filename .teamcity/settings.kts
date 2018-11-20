@@ -217,6 +217,7 @@ object Test : BuildType({
 
     params {
         param("env.SOURCE_BRANCH", "%system.teamcity.projectName%-%system.teamcity.buildConfName%-%build.counter%")
+        param("env.SETTING_TEST", "a setting test parameter")
     }
 
     steps {
@@ -227,7 +228,7 @@ object Test : BuildType({
                 
                 version_suffix=`date +'%%Y%%m%%d'`
                 echo ${'$'}version_suffix
-                echo "this is first settings test"
+                echo ${'$'}SETTING_TEST
             """.trimIndent()
         }
     }

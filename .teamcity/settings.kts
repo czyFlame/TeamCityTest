@@ -34,6 +34,7 @@ project {
     buildType(Release)
     buildType(CompositeTest)
     buildType(AAA)
+    buildType(ThirdTest)
 
     template(First)
 

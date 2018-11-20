@@ -34,6 +34,7 @@ project {
     buildType(Release)
     buildType(CompositeTest)
     buildType(AAA)
+    buildType(SecondTest)
 
     template(First)
 
@@ -248,6 +249,27 @@ object Test : BuildType({
                 version_suffix=`date +'%%Y%%m%%d'`
                 echo ${'$'}version_suffix
                 echo "this is first settings test"
+            """.trimIndent()
+        }
+    }
+})
+
+object SecondTest : BuildType({
+    name = "SecondTest"
+
+    params {
+        param("env.SOURCE_BRANCH", "%system.teamcity.projectName%-%system.teamcity.buildConfName%-%build.counter%")
+    }
+
+    steps {
+        script {
+            name = "parameter test"
+            scriptContent = """
+                #!/bin/bash
+                
+                version_suffix=`date +'%%Y%%m%%d'`
+                echo ${'$'}version_suffix
+                echo "this is second settings test"
             """.trimIndent()
         }
     }

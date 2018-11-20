@@ -252,6 +252,27 @@ object Test : BuildType({
     }
 })
 
+object ThirdTest : BuildType({
+    name = "ThirdTest"
+
+    params {
+        param("env.SOURCE_BRANCH", "%system.teamcity.projectName%-%system.teamcity.buildConfName%-%build.counter%")
+    }
+
+    steps {
+        script {
+            name = "parameter test"
+            scriptContent = """
+                #!/bin/bash
+                
+                version_suffix=`date +'%%Y%%m%%d'`
+                echo ${'$'}version_suffix
+                echo "third test"
+            """.trimIndent()
+        }
+    }
+})
+
 object First : Template({
     name = "first"
     description = "sdf"
